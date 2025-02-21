@@ -40,6 +40,8 @@ var can_upgrade = true
 
 var thanos_timer = -1
 
+var selected_round = -1
+
 var levels = map[int32]level{
 	1: {ebiten.NewImage(128, 72), 0, []Pos{{-10, 62}, {0, 62}, {36, 59}, {50, 54}, {49, 42}, {19, 25}, {26, 18}, {61, 18}, {77, 33}, {88, 54}, {127, 57}, {127, 57}}, []Enemy{}, []TowerFamily{}},
 	2: {ebiten.NewImage(128, 72), 0, []Pos{{12, -10}, {12, 10}, {13, 33}, {31, 57}, {62, 17}, {88, 58}, {114, 40}, {127, 43}, {127, 43}}, []Enemy{}, []TowerFamily{}},
@@ -157,6 +159,23 @@ func mapLogic() {
 		if !changed_level && current_round == 0 && current_mode == 5 {
 			thanos_timer = 0
 			deflation_start = true
+		}
+		if !changed_level && current_round == 0 && current_mode == 6 {
+			if selected_round == 1 {
+				rounds = round_1_rainbow
+			}
+			if selected_round == 2 {
+				rounds = round_2_rainbow
+			}
+			if selected_round == 3 {
+				rounds = round_3_rainbow
+			}
+			if selected_round == 4 {
+				rounds = round_4_rainbow
+			}
+			if selected_round == 5 {
+				rounds = round_5_rainbow
+			}
 		}
 
 		if ebiten.IsKeyPressed(ebiten.Key1) {

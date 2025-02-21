@@ -24,9 +24,9 @@ func (g *Game) Update() error {
 	if state == 0 {
 		updateMainMenu(&mainMenu)
 	} else if state == 1 {
-	if !ebiten.IsMouseButtonPressed(ebiten.MouseButton0) {
-		main_clicked = false
-	}
+		if !ebiten.IsMouseButtonPressed(ebiten.MouseButton0) {
+			main_clicked = false
+		}
 		if ebiten.IsMouseButtonPressed(ebiten.MouseButton0) && !main_clicked {
 			mx, my := ebiten.CursorPosition()
 			mx /= 10
@@ -34,18 +34,23 @@ func (g *Game) Update() error {
 			if fcollide(FPos{2, 2}, FPos{30, 68}, FPos{float64(mx), float64(my)}, FPos{1, 1}) {
 				state = 4
 				rounds = round_1
+				selected_round = 1
 			} else if fcollide(FPos{35, 2}, FPos{30, 68}, FPos{float64(mx), float64(my)}, FPos{1, 1}) {
 				state = 4
 				rounds = round_2
+				selected_round = 2
 			} else if fcollide(FPos{66, 2}, FPos{30, 68}, FPos{float64(mx), float64(my)}, FPos{1, 1}) {
 				state = 4
 				rounds = round_3
+				selected_round = 3
 			} else if fcollide(FPos{96, 2}, FPos{30, 68}, FPos{float64(mx), float64(my)}, FPos{1, 1}) {
 				state = 4
 				rounds = round_4
+				selected_round = 4
 			} else if fcollide(FPos{126, 70}, FPos{2, 2}, FPos{float64(mx), float64(my)}, FPos{0.1, 0.1}) {
 				state = 4
 				rounds = round_5
+				selected_round = 5
 			}
 			main_clicked = true
 		}
@@ -68,9 +73,9 @@ func (g *Game) Update() error {
 	} else if state == -1 {
 		os.Exit(0)
 	} else if state == 4 {
-	if !ebiten.IsMouseButtonPressed(ebiten.MouseButton0) {
-		main_clicked = false
-	}
+		if !ebiten.IsMouseButtonPressed(ebiten.MouseButton0) {
+			main_clicked = false
+		}
 		modeMenu()
 	}
 	return nil
@@ -124,13 +129,13 @@ func (g *Game) Draw(s *ebiten.Image) {
 			mapDrawing(s)
 		}
 	} else if state == 3 {
-			img, _, err := ebitenutil.NewImageFromFile("./art/ui/win_screen.png")
-			if err != nil {
-				log.Fatal(err)
-			}
-			op := ebiten.DrawImageOptions{}
-			op.GeoM.Scale(10, 10)
-			s.DrawImage(img, &op)
+		img, _, err := ebitenutil.NewImageFromFile("./art/ui/win_screen.png")
+		if err != nil {
+			log.Fatal(err)
+		}
+		op := ebiten.DrawImageOptions{}
+		op.GeoM.Scale(10, 10)
+		s.DrawImage(img, &op)
 	} else if state == 4 {
 		modeMenuDraw(s)
 	}

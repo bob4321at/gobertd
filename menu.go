@@ -171,6 +171,9 @@ func modeMenu() {
 		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{1, 0}, FPos{34, 20}) {
 			current_mode = 5
 			state = 2
+		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{51, 22}, FPos{41, 39}) {
+			current_mode = 6
+			state = 2
 		}
 		main_clicked = true
 	}

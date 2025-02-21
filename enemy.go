@@ -134,6 +134,38 @@ func init() {
 	enemy_images[61] = enemy_img61
 	enemy_img62, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy62.png")
 	enemy_images[62] = enemy_img62
+	enemy_img101, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy101.png")
+	enemy_images[101] = enemy_img101
+	enemy_img102, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy102.png")
+	enemy_images[102] = enemy_img102
+	enemy_img103, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy103.png")
+	enemy_images[103] = enemy_img103
+	enemy_img104, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy104.png")
+	enemy_images[104] = enemy_img104
+	enemy_img105, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy105.png")
+	enemy_images[105] = enemy_img105
+	enemy_img106, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy106.png")
+	enemy_images[106] = enemy_img106
+	enemy_img107, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy107.png")
+	enemy_images[107] = enemy_img107
+	enemy_img108, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy108.png")
+	enemy_images[108] = enemy_img108
+	enemy_img109, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy109.png")
+	enemy_images[109] = enemy_img109
+	enemy_img110, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy110.png")
+	enemy_images[110] = enemy_img110
+	enemy_img111, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy111.png")
+	enemy_images[111] = enemy_img111
+	enemy_img112, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy112.png")
+	enemy_images[112] = enemy_img112
+	enemy_img113, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy113.png")
+	enemy_images[113] = enemy_img113
+	enemy_img63, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy63.png")
+	enemy_images[63] = enemy_img63
+	enemy_img64, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy64.png")
+	enemy_images[64] = enemy_img64
+	enemy_img114, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy114.png")
+	enemy_images[114] = enemy_img114
 }
 
 func newEnemy(id int32, pos FPos) (e Enemy) {
