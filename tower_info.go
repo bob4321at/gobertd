@@ -34,6 +34,7 @@ type Attack struct {
 var tower_images = map[int32]*ebiten.Image{}
 var tower_upgrade_images = map[int32]*ebiten.Image{}
 var tower_upgrade_upgrade_images = map[int32]*ebiten.Image{}
+var tower_upgrade_upgrade_upgrade_images = map[int32]*ebiten.Image{}
 var tower_images_outlines = map[int32]*ebiten.Image{}
 var tower_cost = map[int]int{
 	1:  300,
@@ -70,6 +71,22 @@ var tower_upgrade_cost = map[int]int{
 	15: 1000,
 }
 var tower_upgrade_upgrade_cost = map[int]int{
+	1:  250,
+	2:  300,
+	3:  1000,
+	4:  500,
+	5:  3000,
+	6:  600,
+	7:  550,
+	8:  1250,
+	9:  500,
+	10: 650,
+	11: 1250,
+	12: 1250,
+	14: 1500,
+	15: 1250,
+}
+var tower_upgrade_upgrade_upgrade_cost = map[int]int{
 	1:  250,
 	2:  300,
 	3:  1000,
@@ -564,6 +581,162 @@ var tower_upgrade_upgrade_attack = map[int32]Attack{
 		false,
 	},
 }
+var tower_upgrade_upgrade_upgrade_attack = map[int32]Attack{
+	1: {
+		ebiten.NewImage(8, 8),
+		1,
+		FPos{0, 0},
+		FPos{0, 0},
+		2.5,
+		2.5,
+		8,
+		3,
+		false,
+	},
+	2: {
+		ebiten.NewImage(8, 8),
+		2,
+		FPos{0, 0},
+		FPos{0, 0},
+		5,
+		5,
+		4,
+		7,
+		false,
+	},
+	3: {
+		ebiten.NewImage(8, 8),
+		3,
+		FPos{0, 0},
+		FPos{0, 0},
+		0.4,
+		0.4,
+		60,
+		4,
+		false,
+	},
+	4: {
+		ebiten.NewImage(8, 8),
+		3,
+		FPos{0, 0},
+		FPos{0, 0},
+		1,
+		1,
+		7,
+		3,
+		false,
+	},
+	5: {
+		ebiten.NewImage(8, 8),
+		3,
+		FPos{0, 0},
+		FPos{0, 0},
+		0.05,
+		0.05,
+		9,
+		3,
+		false,
+	},
+	6: {
+		ebiten.NewImage(8, 8),
+		3,
+		FPos{0, 0},
+		FPos{0, 0},
+		1.5,
+		1.5,
+		4,
+		5,
+		false,
+	},
+	7: {
+		ebiten.NewImage(8, 8),
+		1,
+		FPos{0, 0},
+		FPos{0, 0},
+		1.2,
+		1.2,
+		8,
+		3,
+		false,
+	},
+	8: {
+		ebiten.NewImage(8, 8),
+		1,
+		FPos{0, 0},
+		FPos{0, 0},
+		4.5,
+		4.5,
+		12,
+		21,
+		false,
+	},
+	9: {
+		ebiten.NewImage(8, 8),
+		4,
+		FPos{0, 0},
+		FPos{0, 0},
+		8, //cooldown
+		8,
+		20,    //projectile speed
+		8,     //damgage
+		false, //idk
+	},
+	10: {
+		ebiten.NewImage(8, 8),
+		2,
+		FPos{0, 0},
+		FPos{0, 0},
+		3.5,
+		3.5,
+		10,
+		5,
+		false,
+	},
+	11: {
+		ebiten.NewImage(8, 8),
+		2,
+		FPos{0, 0},
+		FPos{0, 0},
+		1,
+		1,
+		8,
+		6,
+		false,
+	},
+	12: {
+		ebiten.NewImage(8, 8),
+		2,
+		FPos{0, 0},
+		FPos{0, 0},
+		6,
+		6,
+		8,
+		5,
+		false,
+	},
+	14: {
+		ebiten.NewImage(8, 8),
+		2,
+		FPos{0, 0},
+		FPos{0, 0},
+		9,
+		9,
+		1,
+		39,
+		false,
+	},
+	15: {
+		ebiten.NewImage(8, 8),
+		2,
+		FPos{0, 0},
+		FPos{0, 0},
+		2,
+		2,
+		15,
+		6,
+		false,
+	},
+}
 
 func init() {
 	//towerimg
@@ -657,6 +830,36 @@ func init() {
 	tower_upgrade_upgrade_images[14] = tower_upgrade_upgrade_img14
 	tower_upgrade_upgrade_img15, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade/tower15.png")
 	tower_upgrade_upgrade_images[15] = tower_upgrade_upgrade_img15
+
+	//towerupgradeupgradeupgradeimg
+	tower_upgrade_upgrade_upgrade_img1, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower1.png")
+	tower_upgrade_upgrade_upgrade_images[1] = tower_upgrade_upgrade_upgrade_img1
+	tower_upgrade_upgrade_upgrade_img2, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower2.png")
+	tower_upgrade_upgrade_upgrade_images[2] = tower_upgrade_upgrade_upgrade_img2
+	tower_upgrade_upgrade_upgrade_img3, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower3.png")
+	tower_upgrade_upgrade_upgrade_images[3] = tower_upgrade_upgrade_upgrade_img3
+	tower_upgrade_upgrade_upgrade_img4, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower4.png")
+	tower_upgrade_upgrade_upgrade_images[4] = tower_upgrade_upgrade_upgrade_img4
+	tower_upgrade_upgrade_upgrade_img5, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower5.png")
+	tower_upgrade_upgrade_upgrade_images[5] = tower_upgrade_upgrade_upgrade_img5
+	tower_upgrade_upgrade_upgrade_img6, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower6.png")
+	tower_upgrade_upgrade_upgrade_images[6] = tower_upgrade_upgrade_upgrade_img6
+	tower_upgrade_upgrade_upgrade_img7, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower7.png")
+	tower_upgrade_upgrade_upgrade_images[7] = tower_upgrade_upgrade_upgrade_img7
+	tower_upgrade_upgrade_upgrade_img8, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower8.png")
+	tower_upgrade_upgrade_upgrade_images[8] = tower_upgrade_upgrade_upgrade_img8
+	tower_upgrade_upgrade_upgrade_img9, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower9.png")
+	tower_upgrade_upgrade_upgrade_images[9] = tower_upgrade_upgrade_upgrade_img9
+	tower_upgrade_upgrade_upgrade_img10, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower10.png")
+	tower_upgrade_upgrade_upgrade_images[10] = tower_upgrade_upgrade_upgrade_img10
+	tower_upgrade_upgrade_upgrade_img11, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower11.png")
+	tower_upgrade_upgrade_upgrade_images[11] = tower_upgrade_upgrade_upgrade_img11
+	tower_upgrade_upgrade_upgrade_img12, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower12.png")
+	tower_upgrade_upgrade_upgrade_images[12] = tower_upgrade_upgrade_upgrade_img12
+	tower_upgrade_upgrade_upgrade_img14, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower14.png")
+	tower_upgrade_upgrade_upgrade_images[14] = tower_upgrade_upgrade_upgrade_img14
+	tower_upgrade_upgrade_upgrade_img15, _, _ := ebitenutil.NewImageFromFile("./art/tower_upgrade_upgrade_upgrade/tower15.png")
+	tower_upgrade_upgrade_upgrade_images[15] = tower_upgrade_upgrade_upgrade_img15
 
 	//outline
 	tower_img_outline_1, _, _ := ebitenutil.NewImageFromFile("./art/tower_outlines/tower1outline.png")
@@ -781,4 +984,34 @@ func init() {
 	tower_upgrade_upgrade_attack[14] = Attack{attack_upgrade_upgrade_img14, 14, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_attack[14].timer, tower_upgrade_upgrade_attack[14].o_timer, tower_upgrade_upgrade_attack[14].projectile_speed, tower_upgrade_upgrade_attack[14].damage, false}
 	attack_upgrade_upgrade_img15, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack15.png")
 	tower_upgrade_upgrade_attack[15] = Attack{attack_upgrade_upgrade_img15, 15, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_attack[15].timer, tower_upgrade_upgrade_attack[15].o_timer, tower_upgrade_upgrade_attack[15].projectile_speed, tower_upgrade_upgrade_attack[15].damage, false}
+
+	//upgrade upgrade upgrade attacks
+	attack_upgrade_upgrade_upgrade_img1, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack1.png")
+	tower_upgrade_upgrade_upgrade_attack[1] = Attack{attack_upgrade_upgrade_upgrade_img1, 1, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[1].timer, tower_upgrade_upgrade_upgrade_attack[1].o_timer, tower_upgrade_upgrade_upgrade_attack[1].projectile_speed, tower_upgrade_upgrade_upgrade_attack[1].damage, false}
+	attack_upgrade_upgrade_upgrade_img2, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack2.png")
+	tower_upgrade_upgrade_upgrade_attack[2] = Attack{attack_upgrade_upgrade_upgrade_img2, 2, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[2].timer, tower_upgrade_upgrade_upgrade_attack[2].o_timer, tower_upgrade_upgrade_upgrade_attack[2].projectile_speed, tower_upgrade_upgrade_upgrade_attack[2].damage, false}
+	attack_upgrade_upgrade_upgrade_img3, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack3.png")
+	tower_upgrade_upgrade_upgrade_attack[3] = Attack{attack_upgrade_upgrade_upgrade_img3, 3, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[3].timer, tower_upgrade_upgrade_upgrade_attack[3].o_timer, tower_upgrade_upgrade_upgrade_attack[3].projectile_speed, tower_upgrade_upgrade_upgrade_attack[3].damage, false}
+	attack_upgrade_upgrade_upgrade_img4, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack4.png")
+	tower_upgrade_upgrade_upgrade_attack[4] = Attack{attack_upgrade_upgrade_upgrade_img4, 4, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[4].timer, tower_upgrade_upgrade_upgrade_attack[4].o_timer, tower_upgrade_upgrade_upgrade_attack[4].projectile_speed, tower_upgrade_upgrade_upgrade_attack[4].damage, false}
+	attack_upgrade_upgrade_upgrade_img5, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack5.png")
+	tower_upgrade_upgrade_upgrade_attack[5] = Attack{attack_upgrade_upgrade_upgrade_img5, 5, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[5].timer, tower_upgrade_upgrade_upgrade_attack[5].o_timer, tower_upgrade_upgrade_upgrade_attack[5].projectile_speed, tower_upgrade_upgrade_upgrade_attack[5].damage, false}
+	attack_upgrade_upgrade_upgrade_img6, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack6.png")
+	tower_upgrade_upgrade_upgrade_attack[6] = Attack{attack_upgrade_upgrade_upgrade_img6, 6, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[6].timer, tower_upgrade_upgrade_upgrade_attack[6].o_timer, tower_upgrade_upgrade_upgrade_attack[6].projectile_speed, tower_upgrade_upgrade_upgrade_attack[6].damage, false}
+	attack_upgrade_upgrade_upgrade_img7, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack7.png")
+	tower_upgrade_upgrade_upgrade_attack[7] = Attack{attack_upgrade_upgrade_upgrade_img7, 7, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[7].timer, tower_upgrade_upgrade_upgrade_attack[7].o_timer, tower_upgrade_upgrade_upgrade_attack[7].projectile_speed, tower_upgrade_upgrade_upgrade_attack[7].damage, false}
+	attack_upgrade_upgrade_upgrade_img8, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack8.png")
+	tower_upgrade_upgrade_upgrade_attack[8] = Attack{attack_upgrade_upgrade_upgrade_img8, 8, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[8].timer, tower_upgrade_upgrade_upgrade_attack[8].o_timer, tower_upgrade_upgrade_upgrade_attack[8].projectile_speed, tower_upgrade_upgrade_upgrade_attack[8].damage, false}
+	attack_upgrade_upgrade_upgrade_img9, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack9.png")
+	tower_upgrade_upgrade_upgrade_attack[9] = Attack{attack_upgrade_upgrade_upgrade_img9, 9, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[9].timer, tower_upgrade_upgrade_upgrade_attack[9].o_timer, tower_upgrade_upgrade_upgrade_attack[9].projectile_speed, tower_upgrade_upgrade_upgrade_attack[9].damage, false}
+	attack_upgrade_upgrade_upgrade_img10, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack10.png")
+	tower_upgrade_upgrade_upgrade_attack[10] = Attack{attack_upgrade_upgrade_upgrade_img10, 10, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[10].timer, tower_upgrade_upgrade_upgrade_attack[10].o_timer, tower_upgrade_upgrade_upgrade_attack[10].projectile_speed, tower_upgrade_upgrade_upgrade_attack[10].damage, false}
+	attack_upgrade_upgrade_upgrade_img11, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack11.png")
+	tower_upgrade_upgrade_upgrade_attack[11] = Attack{attack_upgrade_upgrade_upgrade_img11, 11, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[11].timer, tower_upgrade_upgrade_upgrade_attack[11].o_timer, tower_upgrade_upgrade_upgrade_attack[11].projectile_speed, tower_upgrade_upgrade_upgrade_attack[11].damage, false}
+	attack_upgrade_upgrade_upgrade_img12, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack12.png")
+	tower_upgrade_upgrade_upgrade_attack[12] = Attack{attack_upgrade_upgrade_upgrade_img12, 12, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[12].timer, tower_upgrade_upgrade_upgrade_attack[12].o_timer, tower_upgrade_upgrade_upgrade_attack[12].projectile_speed, tower_upgrade_upgrade_upgrade_attack[12].damage, false}
+	attack_upgrade_upgrade_upgrade_img14, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack14.png")
+	tower_upgrade_upgrade_upgrade_attack[14] = Attack{attack_upgrade_upgrade_upgrade_img14, 14, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[14].timer, tower_upgrade_upgrade_upgrade_attack[14].o_timer, tower_upgrade_upgrade_upgrade_attack[14].projectile_speed, tower_upgrade_upgrade_upgrade_attack[14].damage, false}
+	attack_upgrade_upgrade_upgrade_img15, _, _ := ebitenutil.NewImageFromFile("./art/upgraded_upgraded_attacks/attack15.png")
+	tower_upgrade_upgrade_upgrade_attack[15] = Attack{attack_upgrade_upgrade_upgrade_img15, 15, FPos{0, 0}, FPos{0, 0}, tower_upgrade_upgrade_upgrade_attack[15].timer, tower_upgrade_upgrade_upgrade_attack[15].o_timer, tower_upgrade_upgrade_upgrade_attack[15].projectile_speed, tower_upgrade_upgrade_upgrade_attack[15].damage, false}
 }
