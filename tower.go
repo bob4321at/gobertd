@@ -111,7 +111,7 @@ func updateTower(tf *TowerFamily, es []Enemy) {
 							upgraded = true
 						}
 					} else if tf.current_stage == 2 {
-						if money >= tower_upgrade_upgrade_cost[int(t.id)] {
+						if money >= tower_upgrade_upgrade_upgrade_cost[int(t.id)] {
 							tf.current_stage += 1
 							money -= tower_upgrade_upgrade_upgrade_cost[int(t.id)]
 							upgraded = true
