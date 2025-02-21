@@ -11,7 +11,7 @@ var upgraded = false
 var selected_tower = 1
 
 func newTower(id int32, pos FPos) TowerFamily {
-	t := TowerFamily{[]Tower{{tower_images[id], id, pos, tower_attack[id], []Attack{}}, {tower_upgrade_images[id], id, pos, tower_upgrade_attack[id], []Attack{}}, {tower_upgrade_upgrade_images[id], id, pos, tower_upgrade_upgrade_attack[id], []Attack{}}}, 0, false}
+	t := TowerFamily{[]Tower{{tower_images[id], id, pos, tower_attack[id], []Attack{}}, {tower_upgrade_images[id], id, pos, tower_upgrade_attack[id], []Attack{}}, {tower_upgrade_upgrade_images[id], id, pos, tower_upgrade_upgrade_attack[id], []Attack{}}, {tower_upgrade_upgrade_upgrade_images[id], id, pos, tower_upgrade_upgrade_upgrade_attack[id], []Attack{}}}, 0, false}
 	return t
 }
 
@@ -108,6 +108,12 @@ func updateTower(tf *TowerFamily, es []Enemy) {
 						if money >= tower_upgrade_upgrade_cost[int(t.id)] {
 							tf.current_stage += 1
 							money -= tower_upgrade_upgrade_cost[int(t.id)]
+							upgraded = true
+						}
+					} else if tf.current_stage == 2 {
+						if money >= tower_upgrade_upgrade_cost[int(t.id)] {
+							tf.current_stage += 1
+							money -= tower_upgrade_upgrade_upgrade_cost[int(t.id)]
 							upgraded = true
 						}
 					}
