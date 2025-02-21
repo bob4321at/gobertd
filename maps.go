@@ -139,7 +139,7 @@ func mapLogic() {
 		}
 
 		if !changed_level && !deflation_start && current_round == 0 && current_mode == 1 {
-			money = 25000
+			money = 15000
 			deflation_start = true
 		}
 		if !changed_level && current_round == 0 && current_mode == 2 {
@@ -189,6 +189,8 @@ func mapLogic() {
 			selected_tower = 14
 		} else if ebiten.IsKeyPressed(ebiten.KeyE) {
 			selected_tower = 15
+		} else if ebiten.IsKeyPressed(ebiten.KeyG) {
+			selected_tower = 16
 		}
 
 		if !secret_clicked {
