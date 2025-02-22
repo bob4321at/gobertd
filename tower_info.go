@@ -280,7 +280,7 @@ var tower_attack = map[int32]Attack{
 		2.5,
 		2.5,
 		4,
-		3,
+		4,
 		false,
 	},
 }
@@ -447,7 +447,7 @@ var tower_upgrade_attack = map[int32]Attack{
 		3,
 		3,
 		8,
-		5,
+		7,
 		false,
 	},
 }
@@ -614,7 +614,7 @@ var tower_upgrade_upgrade_attack = map[int32]Attack{
 		2,
 		2,
 		9,
-		8,
+		11,
 		false,
 	},
 }
@@ -781,7 +781,7 @@ var tower_upgrade_upgrade_upgrade_attack = map[int32]Attack{
 		5.5,
 		5.5,
 		5,
-		25,
+		40,
 		false,
 	},
 }

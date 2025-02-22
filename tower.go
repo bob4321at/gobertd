@@ -99,9 +99,9 @@ func updateTower(tf *TowerFamily, es []Enemy) {
 			if fcollide(t.pos, FPos{64, 64}, FPos{rmx, rmy}, FPos{1, 1}) {
 				if tf.current_stage < len(tf.stages)-1 {
 					if tf.current_stage == 0 {
-						if money >= tower_upgrade_cost[int(t.id)] {
+						if money >= tower_upgrade_cost[int(tf.stages[1].id)] {
 							tf.current_stage += 1
-							money -= tower_upgrade_cost[int(t.id)]
+							money -= tower_upgrade_cost[int(tf.stages[1].id)]
 							upgraded = true
 						}
 					} else if tf.current_stage == 1 {
@@ -111,9 +111,9 @@ func updateTower(tf *TowerFamily, es []Enemy) {
 							upgraded = true
 						}
 					} else if tf.current_stage == 2 {
-						if money >= tower_upgrade_upgrade_upgrade_cost[int(t.id)] {
+						if money >= tower_upgrade_upgrade_upgrade_cost[int(tf.stages[1].id)] {
 							tf.current_stage += 1
-							money -= tower_upgrade_upgrade_upgrade_cost[int(t.id)]
+							money -= tower_upgrade_upgrade_upgrade_cost[int(tf.stages[1].id)]
 							upgraded = true
 						}
 					}
