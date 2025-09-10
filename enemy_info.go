@@ -16,6 +16,14 @@ type Enemy struct {
 	travelled   float64
 }
 
+var enemy_defense = map[int32]int{
+	70: 1,
+	71: 1,
+	72: 2,
+	73: 2,
+	74: 3,
+}
+
 var enemy_images = map[int32]*ebiten.Image{}
 
 var enemy_speed = map[int32]float64{
@@ -82,6 +90,11 @@ var enemy_speed = map[int32]float64{
 	60:  0.3,
 	61:  0.25,
 	62:  0.2,
+	70:  0.3,
+	71:  0.275,
+	72:  0.25,
+	73:  0.4,
+	74:  0.225,
 	101: 1,
 	102: 0.75,
 	103: 1.5,
@@ -164,6 +177,11 @@ var enemy_health = map[int32]float64{
 	60:  750,
 	61:  1200,
 	62:  3000,
+	70:  10,
+	71:  30,
+	72:  20,
+	73:  15,
+	74:  50,
 	101: 15,
 	102: 24,
 	103: 12,

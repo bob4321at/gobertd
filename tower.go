@@ -76,7 +76,11 @@ func updateTower(tf *TowerFamily, es []Enemy) {
 						e_pos.y *= 10
 						if es[j].r_health >= 0 {
 							if fcollide(t.attacks[i].pos, FPos{32, 32}, FPos{e_pos.x - 32, e_pos.y - 32}, FPos{32, 32}) {
-								es[j].r_health -= t.attack.damage / int32(damage_divider)
+								e_defense := 0
+								if _, has_defense := enemy_defense[es[j].id]; has_defense {
+									e_defense = enemy_defense[es[j].id]
+								}
+								es[j].r_health -= t.attack.damage - int32(e_defense)/int32(damage_divider)
 								t.attacks[i].hit = true
 								t.attacks[i].pos = FPos{1000, 1000}
 								t.attacks[i].img = ebiten.NewImage(8, 8)

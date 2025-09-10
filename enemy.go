@@ -164,6 +164,16 @@ func init() {
 	enemy_images[63] = enemy_img63
 	enemy_img64, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy64.png")
 	enemy_images[64] = enemy_img64
+	enemy_image70, _, _ := ebitenutil.NewImageFromFile("./art/enemy/retroenemy1.png")
+	enemy_images[70] = enemy_image70
+	enemy_image71, _, _ := ebitenutil.NewImageFromFile("./art/enemy/retroenemy2.png")
+	enemy_images[71] = enemy_image71
+	enemy_image72, _, _ := ebitenutil.NewImageFromFile("./art/enemy/retroenemy3.png")
+	enemy_images[72] = enemy_image72
+	enemy_image73, _, _ := ebitenutil.NewImageFromFile("./art/enemy/retroenemy4.png")
+	enemy_images[73] = enemy_image73
+	enemy_image74, _, _ := ebitenutil.NewImageFromFile("./art/enemy/retroenemy5.png")
+	enemy_images[74] = enemy_image74
 	enemy_img114, _, _ := ebitenutil.NewImageFromFile("./art/enemy/enemy114.png")
 	enemy_images[114] = enemy_img114
 }

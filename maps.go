@@ -210,6 +210,8 @@ func mapLogic() {
 			selected_tower = 15
 		} else if ebiten.IsKeyPressed(ebiten.KeyG) {
 			selected_tower = 16
+		} else if ebiten.IsKeyPressed(ebiten.KeyH) {
+			selected_tower = 17
 		}
 
 		if !secret_clicked {
