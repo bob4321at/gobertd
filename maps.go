@@ -173,6 +173,7 @@ func mapLogic() {
 			}
 		}
 		if !changed_level && current_round == 0 && current_mode == 7 {
+			money = 1000
 			if selected_round == 1 {
 				rounds = round_1_boss
 			}
