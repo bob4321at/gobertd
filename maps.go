@@ -172,8 +172,9 @@ func mapLogic() {
 				rounds = round_5_rainbow
 			}
 		}
-		if !changed_level && current_round == 0 && current_mode == 7 {
+		if !changed_level && current_round == 0 && current_mode == 7 && !deflation_start {
 			money = 1000
+			deflation_start = true
 			if selected_round == 1 {
 				rounds = round_1_boss
 			}
