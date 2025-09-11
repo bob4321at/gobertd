@@ -177,6 +177,23 @@ func mapLogic() {
 				rounds = round_5_rainbow
 			}
 		}
+		if !changed_level && current_level == 0 && current_mode == 7 {
+			if selected_round == 1 {
+				rounds = round_1_boss
+			}
+			if selected_round == 2 {
+				rounds = round_2_boss
+			}
+			if selected_round == 3 {
+				rounds = round_3_boss
+			}
+			if selected_round == 4 {
+				rounds = round_4_boss
+			}
+			if selected_round == 5 {
+				rounds = round_5_boss
+			}
+		}
 
 		if ebiten.IsKeyPressed(ebiten.Key1) {
 			selected_tower = 1
