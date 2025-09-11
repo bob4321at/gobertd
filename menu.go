@@ -153,32 +153,34 @@ func modeMenu() {
 	rmx, rmy := float64(mx)/10, float64(my)/10
 
 	if ebiten.IsMouseButtonPressed(ebiten.MouseButton0) && !main_clicked {
-		if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{38, 0}, FPos{61, 20}) {
-			current_mode = 0
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{2, 23}, FPos{41, 25}) {
-			current_mode = 1
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{104, 1}, FPos{23, 23}) {
-			current_mode = 2
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{92, 25}, FPos{35, 42}) {
-			current_mode = 3
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{0, 50}, FPos{49, 23}) {
-			current_mode = 4
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{1, 0}, FPos{34, 20}) {
-			current_mode = 5
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{51, 22}, FPos{41, 39}) {
-			current_mode = 6
-			state = 2
-		} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{56, 63}, FPos{37, 9}) {
+		if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{56, 63}, FPos{37, 9}) {
 			current_mode = 7
 			state = 2
+		} else {
+			if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{38, 0}, FPos{61, 20}) {
+				current_mode = 0
+				state = 2
+			} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{2, 23}, FPos{41, 25}) {
+				current_mode = 1
+				state = 2
+			} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{104, 1}, FPos{23, 23}) {
+				current_mode = 2
+				state = 2
+			} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{92, 25}, FPos{35, 42}) {
+				current_mode = 3
+				state = 2
+			} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{0, 50}, FPos{49, 23}) {
+				current_mode = 4
+				state = 2
+			} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{1, 0}, FPos{34, 20}) {
+				current_mode = 5
+				state = 2
+			} else if fcollide(FPos{rmx, rmy}, FPos{1, 1}, FPos{51, 22}, FPos{41, 39}) {
+				current_mode = 6
+				state = 2
+			}
+			main_clicked = true
 		}
-		main_clicked = true
 	}
 }
 

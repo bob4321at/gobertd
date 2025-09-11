@@ -143,24 +143,19 @@ func mapLogic() {
 		if !changed_level && !deflation_start && current_round == 0 && current_mode == 1 {
 			money = 15000
 			deflation_start = true
-		}
-		if !changed_level && current_round == 0 && current_mode == 2 {
+		} else if !changed_level && current_round == 0 && current_mode == 2 {
 			health = 10
 			deflation_start = true
-		}
-		if !changed_level && current_round == 0 && current_mode == 3 {
+		} else if !changed_level && current_round == 0 && current_mode == 3 {
 			damage_divider = 2
 			deflation_start = true
-		}
-		if !changed_level && current_round == 0 && current_mode == 4 {
+		} else if !changed_level && current_round == 0 && current_mode == 4 {
 			can_upgrade = false
 			deflation_start = true
-		}
-		if !changed_level && current_round == 0 && current_mode == 5 {
+		} else if !changed_level && current_round == 0 && current_mode == 5 {
 			thanos_timer = 0
 			deflation_start = true
-		}
-		if !changed_level && current_round == 0 && current_mode == 6 {
+		} else if !changed_level && current_round == 0 && current_mode == 6 {
 			if selected_round == 1 {
 				rounds = round_1_rainbow
 			}
@@ -177,7 +172,7 @@ func mapLogic() {
 				rounds = round_5_rainbow
 			}
 		}
-		if !changed_level && current_level == 0 && current_mode == 7 {
+		if !changed_level && current_round == 0 && current_mode == 7 {
 			if selected_round == 1 {
 				rounds = round_1_boss
 			}
