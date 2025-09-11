@@ -651,7 +651,7 @@ var tower_upgrade_upgrade_attack = map[int32]Attack{
 		1.5,   //cooldown
 		1.5,   //cooldown
 		9,     //projectile speed
-		10,    //damgage
+		15,    //damgage
 		false, //idk
 	},
 }
